@@ -19,10 +19,10 @@ $(document).ready(function () {
         type: "GET",
     }).done (function (response) {
         if (response.status === 'OK') {
-            $("#api_status").addClass('available');
+            $("div#api_status").addClass('available');
             console.log(response.status);
         } else {
-            $("#api_status").removeClass('available');
+            $("div#api_status").removeClass('available');
         }
     });
 });

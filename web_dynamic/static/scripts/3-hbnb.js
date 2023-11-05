@@ -66,7 +66,7 @@ const shortenString = (string, length = 30) => {
           </article>
             `);
 
-            $(section.places).append("placeMarkup");
+            $("section.places").append("placeMarkup");
         });
     });
 }

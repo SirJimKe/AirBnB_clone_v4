@@ -10,12 +10,13 @@
     <link rel="icon" href="../static/images/icon.png?cache={{ cache_id }}" />
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../static/scripts/1-hbnb.js?cache={{ cache_id }}"></script>
+    <script type="text/javascript" src="../static/scripts/2-hbnb.js?cache={{ cache_id }}"></script>
     <title>HBnB</title>
   </head>
   <body>
     <header>
       <div class="logo"></div>
+	  <div id="api_status"></div>
     </header>
     <div class="container">
       <section class="filters">
@@ -43,10 +44,9 @@
 	  <div class="popover">
 	    <ul>
 	      {% for amenity in amenities %}
-	      <li>
-		  <input type="checkbox" class="amenity-checkbox" 
-		  data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
-		  <label for="amenity-{{ amenity.id }}" style="padding-left: 10px;">{{ amenity.name }}</label>
+	      <li data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+		  <input type="checkbox" class="amenity-checkbox" id="amenity-{{ amenity.id }}">
+		  <label for="amenity-{{ amenity.id }}">{{ amenity.name }}</label>
 	      </li>
 	      {% endfor %}
 	    </ul>

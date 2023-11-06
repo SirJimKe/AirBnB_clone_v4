@@ -1,29 +1,28 @@
 $(document).ready(function () {
     const selectedAmenities = {};
-
     $('.amenity-checkbox').change(function () {
-      const amenityId = $(this).closest('li').data('id');
-      const amenityName = $(this).closet('li').data('name');
+      const id = $(this).data('id');
+      const name = $(this).data('name');
   
-      if ($(this).prop('checked')) {
-        selectedAmenities[amenityId] = amenityName;
+      if ($(this).is(':checked')) {
+        selectedAmenities[id] = name;
       } else {
-        delete selectedAmenities[amenityId];
+        delete selectedAmenities[id];
       }
+      $('.amenities h4').text(Object.values(selectedAmenities).join(', '));
   
-      const amenitiesList = Object.values(selectedAmenities).join(', ');
-      $('.amenities h4').text('Amenities: ' + amenitiesList);
     });
+  
  
     $.ajax({
         url: "http://0.0.0.0:5001/api/v1/status/",
         type: "GET",
     }).done (function (response) {
         if (response.status === 'OK') {
-            $("div#api_status").addClass('available');
-            console.log(response.status);
+            $('#api_status').addClass('available');
+            console.log(response);
         } else {
-            $("div#api_status").removeClass('available');
+            $('#api_status').removeClass('available');
         }
     });
 });

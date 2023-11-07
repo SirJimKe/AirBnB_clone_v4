@@ -8,10 +8,9 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?cache={{ cache_id }}">
     <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?cache={{ cache_id }}">
     <link rel="icon" href="../static/images/icon.png?cache={{ cache_id }}" />
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../static/scripts/1-hbnb.js?cache={{ cache_id }}"></script>
     <title>HBnB</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/1-hbnb.js?cache={{ cache_id }}"></script>
   </head>
   <body>
     <header>
@@ -38,18 +37,17 @@
 	  </div>
 	</div>
 	<div class="amenities">
-	  <h3>Amenities</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for amenity in amenities %}
-	      <li>
-		  <input type="checkbox" class="amenity-checkbox" 
-		  data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
-		  <label for="amenity-{{ amenity.id }}" style="padding-left: 10px;">{{ amenity.name }}</label>
-	      </li>
-	      {% endfor %}
-	    </ul>
+	    <h3>Amenities</h3>
+	    <h4>&nbsp;</h4>
+	    <div class="popover">
+		<ul>
+		    {% for amenity in amenities %}
+		    <li data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+			<input type="checkbox" class="amenity-checkbox" id="amenity-{{ amenity.id }}">
+			<label for="amenity-{{ amenity.id }}">{{ amenity.name }}</label>
+		    </li>
+		  {% endfor %}
+	      </ul>
 	  </div>
 	</div>
 	<button type="button">Search</button>
